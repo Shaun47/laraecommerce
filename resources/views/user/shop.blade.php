@@ -30,44 +30,12 @@
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
+                                    @foreach($categories as $category)
                                     <li>
-                                        <a href="#">Fruits and Vegetables</a>
+                                        <a href="{{route('shop.index',['category' => $category->slug])}}">{{$category->name}}</a>
                                     </li>
-                                    <li class="sub-menu">
-                                        <a href="#Electronics" class=" d-flex justify-content-between">
-                                            Electronics
-                                            <div class="right ti-plus"></div>
-                                        </a>
-                                        <ul>
-                                            <li>
-                                                <a href="#Electronics">Home Appliances</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Smartphones</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Kitchen Appliances</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Computer Accessories</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Meat Alternatives</a>
-                                            </li>
-                                            <li>
-                                                <a href="#Electronics">Appliances</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">Cooking</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Beverages</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Home and Cleaning</a>
-                                    </li>
+                                   @endforeach
+                                  
                                 </ul>
                             </div>
                         </aside>
@@ -127,12 +95,12 @@
                         </aside>
 
                         <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
-                            <div class="l_w_title">
+                            <!-- <div class="l_w_title">
                                 <h3>Price Filter</h3>
                             </div>
                             <div class="widgets_inner">
                                 <div class="range_item">
-                                    <!-- <div id="slider-range"></div> -->
+                                    <div id="slider-range"></div>
                                     <input type="text" class="js-range-slider" value="" />
                                     <div class="d-flex align-items-center">
                                         <div class="price_text">
@@ -145,7 +113,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+
+                            
                         </aside>
                     </div>
                 </div>
@@ -153,8 +123,12 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="product_top_bar d-flex justify-content-between align-items-center">
-                                <div class="single_product_menu product_bar_item">
-                                    <h2>Womans</h2>
+                                <div class="single_product_menu product_bar_item col-lg-6">
+                                    <h2>{{$categoryName}}</h2>
+                                </div>
+                                <div class="col-lg-6">
+                                <strong>Price:</strong>
+                            <a href="{{route('shop.index', ['category'=> request()->category, 'sort' => 'low_high'])}}" class="price_color">low to high</a>|<a href="{{route('shop.index', ['category'=> request()->category, 'sort' => 'low_high'])}}" class="price_color">high to low</a>
                                 </div>
                                 <!-- <div class="product_top_bar_iner product_bar_item d-flex">
                                     <div class="product_bar_single">
@@ -177,17 +151,14 @@
                         </div>
 
 
-                        @foreach($products as $product)
+                        
+
+                        @forelse ($products as $product)
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_category_product">
                                 <div class="single_category_img">
                                     <img src="{{asset('user/img/category/category_1.png')}}" alt="">
-                                    <div class="category_social_icon">
-                                        <ul>
-                                            <li><a href="#"><i class="ti-heart"></i></a></li>
-                                            <li><a href="#"><i class="ti-bag"></i></a></li>
-                                        </ul>
-                                    </div>
+                                   
                                     <div class="category_product_text">
                                         <a href="{{route('shop.show',$product->slug)}}"><h5>{{$product->name}}</h5></a>
                                         <p>${{$product->price}}</p>
@@ -195,13 +166,13 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-
-
-
+                        @empty
+                            <p>No item found</p>
+                        @endforelse
+                        
 
                         <div class="col-lg-12 text-center">
-                            <a href="#" class="btn_2">More Items</a>
+                            {{$products->appends(request()->input())->links()}}
                         </div>
                     </div>
                 </div>

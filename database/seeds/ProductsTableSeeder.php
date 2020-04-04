@@ -22,12 +22,12 @@ class ProductsTableSeeder extends Seeder
                 'price' => rand(149999, 249999),
                 'description' =>'Lorem '. $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 
-            ]);
+            ])->categories()->attach(1);
         }
 
         // Make Laptop 1 a Desktop as well. Just to test multiple categories
-        // $product = Product::find(1);
-        // $product->categories()->attach(2);
+        $product = Product::find(1);
+        $product->categories()->attach(2);
 
         // Desktops
         for ($i = 1; $i <= 9; $i++) {
@@ -38,7 +38,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => rand(249999, 449999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 
-            ]);
+            ])->categories()->attach(2);
         }
 
          // Phones
@@ -50,7 +50,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => rand(79999, 149999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 
-            ]);
+            ])->categories()->attach(3);
         }
 
         // Tablets
@@ -62,7 +62,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => rand(49999, 149999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 
-            ]);
+            ])->categories()->attach(4);
         }
 
 
@@ -75,7 +75,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => rand(79999, 149999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 
-            ]);
+            ])->categories()->attach(5);
         }
 
          // Cameras
@@ -87,7 +87,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => rand(79999, 249999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 
-            ]);
+            ])->categories()->attach(6);
         }
 
         // Appliances
@@ -99,7 +99,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => rand(79999, 149999),
                 'description' => 'Lorem ' . $i . ' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
                 
-            ]);
+            ])->categories()->attach(7);
         }
     }
 }
