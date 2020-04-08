@@ -7,13 +7,27 @@
     <div class="container">
       <div class="row s_product_inner">
         <div class="col-lg-5">
+          
+          
           <div class="product_slider_img">
             <div id="vertical">
-              <div data-thumb="{{asset('user/img/product_details/prodect_details_1.png')}}">
-                <img src="{{asset('user/img/product_details/prodect_details_1.png')}}" />
+            <div data-thumb="{{ asset('storage/'.$product->image) }}">
+                <img src="{{ asset('storage/'.$product->image) }}" />
               </div>
+            @if($product->images)
+              @foreach(json_decode($product->images,true) as $image)
+                <div data-thumb=" {{ asset('storage/'.$image) }} ">
+                  <img src=" {{ asset('storage/'.$image) }}" />
+                </div>
+              @endforeach
+            @endif
+              
+              
             </div>
           </div>
+
+
+
         </div>
         <div class="col-lg-5 offset-lg-1">
           <div class="s_product_text">
@@ -75,7 +89,7 @@
           <div class="col-lg-3 col-sm-6">
               <div class="single_category_product">
                   <div class="single_category_img">
-                      <img src="{{asset('user/img/category/category_2.png')}}" alt="">
+                      <img src="{{ asset('storage/'.$product->image) }}" alt="">
                       <div class="category_social_icon">
                           <ul>
                               <li><a href="#"><i class="ti-heart"></i></a></li>

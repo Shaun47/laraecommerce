@@ -157,7 +157,7 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_category_product">
                                 <div class="single_category_img">
-                                    <img src="{{asset('user/img/category/category_1.png')}}" alt="">
+                                    <img src="{{ asset('storage/'.$product->image) }}" alt="">
                                    
                                     <div class="category_product_text">
                                         <a href="{{route('shop.show',$product->slug)}}"><h5>{{$product->name}}</h5></a>

@@ -49,7 +49,7 @@
                         @foreach($products as $product)
 
                         <div class="single_arrivel_item weidth_2 mix women">
-                            <img src="{{asset('user/img/arrivel/arrivel_2.png')}}" alt="#">
+                            <img src="{{ asset('storage/'.$product->image) }}" alt="#">
                             <div class="hover_text">
                                 <p>Canvas</p>
                                 <a href="single-product.html"><h3>{{$product->name}}</h3></a>

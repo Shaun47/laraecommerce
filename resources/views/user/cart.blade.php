@@ -34,7 +34,7 @@
                 <td>
                   <div class="media">
                     <div class="d-flex">
-                      <img src="{{asset('user/img/arrivel/arrivel_2.png')}}" alt="" />
+                      <img src="{{ asset('storage/'.$item->model->image) }}" alt="" />
                     </div>
                     <div class="media-body">
                       <p>{{$item->model->name}}</p>
