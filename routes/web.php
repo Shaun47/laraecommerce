@@ -23,9 +23,13 @@ Route::get('/cart','CartController@index')->name('cart.index');
 Route::post('/cart','CartController@store')->name('cart.store');
 Route::delete('/cart/{product}','CartController@destroy')->name('cart.delete');
 Route::get('/cart-clear','CartController@clear')->name('cart.clear');
-Route::get('/checkout','CheckoutController@index')->name('checkout.index');
+Route::get('/checkout','CheckoutController@index')->name('checkout.index')->middleware('auth');
 Route::patch('/cart/{product}','CartController@update')->name('cart.update');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
