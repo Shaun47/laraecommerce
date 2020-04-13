@@ -28,7 +28,7 @@
 <body class="bg-white">
 @include('user.partials.header')
 
-
+@include('user.partials.error')
 
   <!--================Single Product Area =================-->
   <div class="product_image_area section_padding">

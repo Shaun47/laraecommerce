@@ -2,7 +2,7 @@
 
     @section('main-content')
 
-
+    @include('user.partials.error')
     @include('user.partials.banner')
     <!-- new arrival part here -->
     <section class="new_arrival section_padding">

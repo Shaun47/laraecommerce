@@ -46,6 +46,26 @@ class ShopController extends Controller
         ]);
     }
 
+
+
+    public function search(Request $request){
+
+        $request->validate([
+            'query' => 'required|min:3',
+        ]);
+
+        $query = $request->input('query');
+        $products = Product::where('name','like',"%$query%")
+                            ->orWhere('details','like',"%$query%")
+                            ->orWhere('description','like',"%$query%")->paginate(10);
+        return view('user.search-results')->with('products',$products);
+    }
+
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *

@@ -10,6 +10,8 @@
 
 
   @if(Cart::count() > 0)
+
+  @include('user.partials.error')
   <!--================Cart Area =================-->
   <section class="cart_area section_padding">
     <div class="container">

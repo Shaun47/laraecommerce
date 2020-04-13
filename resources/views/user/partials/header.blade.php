@@ -28,9 +28,17 @@
                               </div>
                           </div> -->
                           <div class="row">
-                              <div class="col-md-7">@include('user.partials.cart')</div>
-                              <div class="col-md-5"><a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a></div>
-                          </div>                  
+                                <div class="col-md-7">@include('user.partials.cart')</div>
+
+                                <div class="col-md-5">
+                                    
+                                    <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
+
+                                </div>
+
+
+
+                            </div>                  
                           
                           
                       </div>
@@ -40,8 +48,8 @@
         </div>
         <div class="search_input" id="search_input_box">
             <div class="container ">
-                <form class="d-flex justify-content-between search-inner">
-                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+                <form class="d-flex justify-content-between search-inner" action="{{route('search')}}" method="GET">
+                    <input type="text" class="form-control" id="search_input" name="query" placeholder="Search Here">
                     <button type="submit" class="btn"></button>
                     <span class="ti-close" id="close_search" title="Close Search"></span>
                 </form>
